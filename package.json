@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@120.79.64.251:/git/smarter"
+    "url": "git+https://github.com/wushuangYK/myBlog.git"
   },
   "keywords": [],
   "author": "",
