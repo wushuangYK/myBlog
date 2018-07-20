@@ -8,7 +8,7 @@ const baseConfig = require("./webpack.base.js");//基础配置
 let config = {
     mode: 'development',
     devServer: {
-        contentBase: path.resolve(__dirname, '../dist'),
+        contentBase: path.resolve(__dirname, '../'),
         host: 'localhost',
         compress: true,
         port: 8888
