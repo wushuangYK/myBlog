@@ -6,8 +6,6 @@ import Loadable from 'react-loadable';
 import HomePage from '../container/HomePage'
 import Test1 from '../container/Test1'
 import Test2 from '../container/Test2'
-import Test11 from '../container/Test11'
-import Test12 from '../container/Test12'
 
 const Loading = () => null;
 
@@ -15,17 +13,11 @@ const routes = [
     {
         exact: true,
         path: "/",
-        component: Loadable({
-            loader: () => import('../container/Test2'),
-            loading: Loading,
-        }),
+        component: HomePage,
     },
     {
         path: "/t1",
-        component: Loadable({
-            loader: () => import('../container/Test1'),
-            loading: Loading,
-        }),
+        component: Test1,
         routes: [
             {
                 path: "/t1/1",
@@ -45,10 +37,7 @@ const routes = [
     },
     {
         path: "/t2",
-        component: Loadable({
-            loader: () => import('../container/Test2'),
-            loading: Loading,
-        }),
+        component: Test2,
     }
 ];
 
