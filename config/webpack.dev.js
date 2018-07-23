@@ -10,7 +10,10 @@ let config = {
     devServer: {
         publicPath: '/dist/',
         host: 'localhost',
-        port: 8888
+        port: 8888,
+        historyApiFallback: {
+            index: 'index.html'
+        }
     }
 };
 
