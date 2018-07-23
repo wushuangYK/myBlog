@@ -7,6 +7,10 @@ import {
     Switch
 } from "react-router-dom";
 import NoMatch from './NoMatch'
+import { Layout, Menu, Icon } from 'antd';
+require('../css/app.css');
+
+const { Header, Content, Footer, Sider } = Layout;
 
 const Home = () => (
     <div>
@@ -23,56 +27,70 @@ const About = () => (
 const Topics = ({ match }) => (
     <div>
         <h2>Topics</h2>
-        <ul>
-            <li>
-                <Link to={`${match.url}/rendering`}>Rendering with React</Link>
-            </li>
-            <li>
-                <Link to={`${match.url}/components`}>Components</Link>
-            </li>
-            <li>
-                <Link to={`${match.url}/props-v-state`}>Props v. State</Link>
-            </li>
-        </ul>
-        <Route path={`${match.url}/:topicId`} component={Topic} />
-        <Route
-            exact
-            path={match.url}
-            render={() => <h3>Please select a topic.</h3>}
-        />
     </div>
 );
 
-const Topic = ({ match }) => (
-    <div>
-        <h3>{match.params.topicId}</h3>
-    </div>
+const MySider = () => (
+    <Sider
+        style={{ overflow: 'auto', height: '100vh', position: 'fixed', left: 0 }}
+    >
+        <div className="logo" />
+        <Menu theme="dark" mode="inline">
+            <Menu.Item key="1">
+                <Icon type="user" />
+                <span className="nav-text">
+                    <Link to="/">Home</Link>
+                </span>
+            </Menu.Item>
+            <Menu.Item key="2">
+                <Icon type="video-camera" />
+                <span className="nav-text">
+                    <Link to="/about">About</Link>
+                </span>
+            </Menu.Item>
+            <Menu.Item key="3">
+                <Icon type="upload" />
+                <span className="nav-text">
+                    <Link to="/topics">Topics</Link>
+                </span>
+            </Menu.Item>
+            <Menu.Item key="4">
+                <Icon type="user" />
+                <span className="nav-text">
+                    <Link to="/will-not-match">NoMatch</Link>
+                </span>
+            </Menu.Item>
+        </Menu>
+    </Sider>
 );
+
+const MyLayout = () => (
+    <Layout>
+        <MySider/>
+        <Layout style={{marginLeft:'200px'}}>
+            <Header style={{ background: '#fff', padding: 0, height:'10vh' }} />
+            <Content style={{ margin: '2vh 16px 1vh', height:'80vh'}}>
+                <div style={{ padding: 24, background: '#fff', height:'80vh'}}>
+                    <Switch>
+                        <Route exact path="/" component={Home} />
+                        <Route path="/about" component={About} />
+                        <Route path="/topics" component={Topics} />
+                        <Route component={NoMatch} />
+                    </Switch>
+                </div>
+            </Content>
+            <Footer style={{ textAlign: 'center', height:'5vh' }}>
+                Ant Design ©2016 Created by Ant UED
+            </Footer>
+        </Layout>
+    </Layout>
+);
+
 
 const App = () => (
     <Router>
         <div>
-            <ul>
-                <li>
-                    <Link to="/">Home</Link>
-                </li>
-                <li>
-                    <Link to="/about">About</Link>
-                </li>
-                <li>
-                    <Link to="/topics">Topics</Link>
-                </li>
-                <li>
-                    <Link to="/will-not-match">Will Not Match</Link>
-                </li>
-            </ul>
-            <hr />
-            <Switch>
-                <Route exact path="/" component={Home} />
-                <Route path="/about" component={About} />
-                <Route path="/topics" component={Topics} />
-                <Route component={NoMatch} />
-            </Switch>
+            <MyLayout />
         </div>
     </Router>
 );

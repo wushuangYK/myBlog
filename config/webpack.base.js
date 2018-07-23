@@ -16,13 +16,29 @@ module.exports = {
     module: {
         rules: [
             {
+                test: /\.(png|jpg|gif|eot|ttf|woff|svg)$/,
+                loader: 'url-loader?limit=50000'
+            },
+            { test: /\.txt$/, use: 'raw-loader' },
+            {
+                test: /\.css$/,
+                use: [{loader: "style-loader"},{loader: "css-loader"}]
+            },
+            {
+                test: /\.less/,
+                use: [{loader: "style-loader"},
+                    {loader: "css-loader"},
+                    {loader: 'less-loader', options: { javascriptEnabled: true }}]
+            },
+            {
                 test: /\.js$/,
                 exclude: /node_modules/,
                 loader: "babel-loader",
                 options: {
                     presets: [["env"],["react"]],
                     plugins: [
-                        "transform-class-properties"
+                        "transform-class-properties",
+                        ["import", { libraryName: "antd", style: true }] // `style: true` 会加载 less 文件
                     ]
                 }
             }
