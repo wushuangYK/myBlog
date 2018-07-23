@@ -1,7 +1,7 @@
 /**
  * Created by wushuang on 2018/7/20.
  */
-const path = require('path');
+const path = require("path");
 
 module.exports = {
     //入口文件
@@ -22,8 +22,7 @@ module.exports = {
                 options: {
                     presets: [["env"],["react"]],
                     plugins: [
-                        "transform-class-properties",
-                        "syntax-dynamic-import"
+                        "transform-class-properties"
                     ]
                 }
             }

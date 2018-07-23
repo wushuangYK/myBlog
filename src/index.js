@@ -1,14 +1,19 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { BrowserRouter as Router} from "react-router-dom";
-import {renderRoutes} from 'react-router-config'
-import routes from '../router/router.config'
+
+class App extends React.Component{
+    getText = () => {
+        return "hello world!";
+    }
+
+    render(){
+        return (
+            <h1>{this.getText()}</h1>
+        )
+    }
+}
 
 ReactDOM.render(
-    <Router>
-        <div>
-            {renderRoutes(routes)}
-        </div>
-    </Router>,
+    <App />,
     document.getElementById('root')
 );
