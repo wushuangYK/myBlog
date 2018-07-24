@@ -36,6 +36,8 @@
   },
   "dependencies": {
     "antd": "^3.7.1",
+    "isomorphic-fetch": "^2.2.1",
+    "rc-color-picker": "^1.2.6",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-router-dom": "^4.3.1"
