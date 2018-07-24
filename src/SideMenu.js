@@ -2,31 +2,47 @@
  * Created by wushuang on 2018/7/23.
  */
 import React from 'react'
-import { Layout, Menu, Icon } from 'antd';
+import { Menu, Icon } from 'antd';
 import {withRouter} from 'react-router-dom'
-
-const { Sider } = Layout;
+import {isEmpty} from '../util/cmnf'
 
 const menu_list = [
     {
-        icon: "user",
+        icon: "home",
         title: "Welcome",
         path: "/welcome"
     },
     {
-        icon: "user",
+        icon: "file",
         title: "Blog",
         path: "/blog"
     },
     {
-        icon: "user",
+        icon: "mail",
         title: "About Me",
         path: "/me"
     },
     {
-        icon: "user",
+        icon: "inbox",
         title: "TOOLS",
         path: "/tools"
+    },
+    {
+        icon: "folder-open",
+        title: "TASK",
+        path: "/task",
+        sub: [
+            {
+                icon: "bars",
+                title: "Home",
+                path: "/task/home",
+            },
+            {
+                icon: "file-add",
+                title: "New",
+                path: "/task/new",
+            }
+        ]
     }
 ];
 
@@ -36,14 +52,26 @@ const generateMenu = list => {
     let i = 0;
     list.map(item => {
         i++;
-        items.push(
-            <Menu.Item key={item.path}>
-                <Icon type={item.icon} />
-                <span className="nav-text">
-                    {item.title}
-                </span>
-            </Menu.Item>
-        )
+        if(isEmpty(item.sub)){
+            items.push(
+                <Menu.Item key={item.path}>
+                    <Icon type={item.icon} />
+                    <span>
+                        {item.title}
+                    </span>
+                </Menu.Item>
+            )
+        } else {
+            items.push(
+                <Menu.SubMenu
+                    key={item.path}
+                    title={<div><Icon type={item.icon} /><span>{item.title}</span></div>}
+                >
+                    {generateMenu(item.sub)}
+                </Menu.SubMenu>
+            )
+        }
+
     });
     return items;
 };
@@ -59,13 +87,9 @@ class SideMenu extends React.Component{
 
     render(){
         return (
-            <Sider
-                style={{ overflow: 'auto', height: '100vh', position: 'fixed', left: 0 }}
-            >
-                <Menu theme="dark" mode="inline" onClick={this.onClickMenu}>
-                    {generateMenu(menu_list)}
-                </Menu>
-            </Sider>
+            <Menu theme="dark" mode="inline" onClick={this.onClickMenu}>
+                {generateMenu(menu_list)}
+            </Menu>
         )
     }
 }

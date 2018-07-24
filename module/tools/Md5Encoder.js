@@ -30,7 +30,7 @@ export default class Md5Encoder extends React.Component{
                         onChange={e => {
                             this.value = e.target.value;
                         }}
-                        autosize={{minRows:10,maxRows:15}}
+                        autosize={{minRows:8,maxRows:8}}
                     />
                 </Row>
                 <Row type="flex" justify="center">
@@ -46,7 +46,7 @@ export default class Md5Encoder extends React.Component{
                 <Row type="flex" style={{margin:"20px"}}>
                     <TextArea
                         value={this.state.res}
-                        autosize={{minRows:10,maxRows:15}}
+                        autosize={{minRows:8,maxRows:8}}
                     />
                 </Row>
             </div>
