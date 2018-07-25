@@ -41,6 +41,11 @@ const menu_list = [
                 icon: "file-add",
                 title: "New",
                 path: "/task/new",
+            },
+            {
+                icon: "team",
+                title: "Team",
+                path: "/task/team",
             }
         ]
     }

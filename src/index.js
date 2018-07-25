@@ -21,12 +21,12 @@ const generateBreadItem = pathname => {
     let i = 0;
     arr.map(item => {
         if(!isEmpty(item)){
-            ret.push(<Breadcrumb.Item key={i}>{item}</Breadcrumb.Item>)
+            ret.push(<Breadcrumb.Item key={i}>{item}</Breadcrumb.Item>);
             i++;
         }
     });
     return ret;
-}
+};
 
 const Bread = ({location}) => (
     <Breadcrumb style={{ margin: '16px 0' }}>

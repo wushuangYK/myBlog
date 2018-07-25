@@ -21,3 +21,14 @@ export function isEmpty(o){
     }
     return true;
 }
+
+export function keyCount(arr, key, val){
+    if(isEmpty(arr))
+        return 0;
+    let count = 0;
+    for(let i in arr){
+        if(!isEmpty(arr[i][key]) && arr[i][key] === val)
+            count++;
+    }
+    return count;
+}

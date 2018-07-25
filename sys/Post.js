@@ -45,7 +45,12 @@ export const Post = (url, parameters) => {
 };
 
 export const URL = {
-    /**博客部分**/
-    BLOG_GET: "blog/getAll",
-    BLOG_ADD: "blog/add"
+    //member
+    MEMBER_GETALL: "member/getAll",
+    MEMBER_ADD: "member/add",
+    //task
+    TASK_GETALL: "task/getAll",
+    TASK_ADD: "task/add",
+    TASK_UPDATE: "task/update",
+    TASK_DEL: "task/del"
 };
