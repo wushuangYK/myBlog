@@ -2,14 +2,9 @@
  * Created by wushuang on 2018/2/23.
  */
 import React from 'react'
-import {Route,withRouter} from 'react-router-dom'
+import {withRouter} from 'react-router-dom'
 import {Row,Col} from 'antd'
-import Base64Encode from '../module/tools/Base64Encode'
-import SimplePressureTest from '../module/tools/SimplePressureTest'
-import JsonParser from '../module/tools/JsonParser'
-import Md5Encoder from '../module/tools/Md5Encoder'
-import ColorPanel from '../module/tools/ColorPanel'
-import CalendarPanel from '../module/tools/CalendarPanel'
+import {RouteWithSubRoutes} from '../config/router.config'
 
 const LIST = [
     {
@@ -83,12 +78,7 @@ class ToolsMainPage extends React.Component{
                         overflowY:"auto"
                     }}
                 >
-                    <Route exact path="/tools/base64" component={Base64Encode}/>
-                    <Route exact path="/tools/simplePressureTest" component={SimplePressureTest}/>
-                    <Route exact path="/tools/jsonParser" component={JsonParser}/>
-                    <Route exact path="/tools/md5" component={Md5Encoder}/>
-                    <Route exact path="/tools/colorPicker" component={ColorPanel}/>
-                    <Route exact path="/tools/calendar" component={CalendarPanel}/>
+                    {this.props.routes.map((route, i) => <RouteWithSubRoutes key={i} {...route} />)}
                 </Col>
             </Row>
         )

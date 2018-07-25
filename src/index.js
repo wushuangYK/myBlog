@@ -7,32 +7,13 @@ import {
 } from "react-router-dom";
 import SideMenu from './SideMenu'
 import { Breadcrumb } from 'antd';
-import NoMatch from './NoMatch'
 import { Layout } from 'antd';
-import ToolsContainer from '../container/ToolsContainer'
-import TaskContainer from '../container/TaskContainer'
 import {isEmpty} from '../util/cmnf'
+import {routes, RouteWithSubRoutes} from '../config/router.config'
 require('../css/app.css');
 
 const { Header, Content, Footer, Sider } = Layout;
 
-const Home = () => (
-    <div>
-        <h2>Home</h2>
-    </div>
-);
-
-const Welcome = () => (
-    <div>
-        <h2>Welcome!</h2>
-    </div>
-);
-
-const Me = () => (
-    <div>
-        <h2>Hey!</h2>
-    </div>
-);
 
 const generateBreadItem = pathname => {
     let ret = [];
@@ -66,12 +47,7 @@ const MyLayout = ({location}) => (
                 <Route path="/" component={Bread} />
                 <div style={{ padding: 24, background: '#fff', minHeight:'75vh', height:"auto" }}>
                     <Switch>
-                        <Route exact path="/" component={Home} />
-                        <Route exact path="/welcome" component={Welcome} />
-                        <Route exact path="/me" component={Me} />
-                        <Route path="/tools" component={ToolsContainer} />
-                        <Route path="/task" component={TaskContainer} />
-                        <Route component={NoMatch} />
+                        {routes.map((route, i) => <RouteWithSubRoutes key={i} {...route} />)}
                     </Switch>
                 </div>
             </Content>

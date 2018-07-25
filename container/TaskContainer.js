@@ -2,9 +2,7 @@
  * Created by wushuang on 2018/7/24.
  */
 import React from 'react'
-import {Route} from 'react-router-dom'
-import TaskHomePage from '../module/task/TaskHomePage'
-import TaskNew from '../module/task/TaskNew'
+import {RouteWithSubRoutes} from '../config/router.config'
 
 export default class TaskContainer extends React.Component{
     constructor(props){
@@ -14,8 +12,7 @@ export default class TaskContainer extends React.Component{
     render(){
         return (
             <div>
-                <Route exact path="/task/home" component={TaskHomePage}/>
-                <Route exact path="/task/new" component={TaskNew}/>
+                {this.props.routes.map((route, i) => <RouteWithSubRoutes key={i} {...route} />)}
             </div>
         )
     }

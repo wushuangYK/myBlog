@@ -11,7 +11,8 @@ module.exports = {
     //出口文件
     output: {
         path: path.resolve(__dirname, '../dist'),
-        filename: "bundle.js"
+        filename: "[name].js",
+        publicPath: '/dist'
     },
     module: {
         rules: [
@@ -37,6 +38,7 @@ module.exports = {
                 options: {
                     presets: [["env"],["react"]],
                     plugins: [
+                        "syntax-dynamic-import",
                         "transform-class-properties",
                         ["import", { libraryName: "antd", style: true }] // `style: true` 会加载 less 文件
                     ]
