@@ -3,6 +3,7 @@
  */
 import React from 'react'
 import {Row,Col} from 'antd'
+import BorderCard from '../../component/ui/BorderCard'
 
 export default class TaskHomePage extends React.Component{
     constructor(props){
@@ -11,9 +12,13 @@ export default class TaskHomePage extends React.Component{
 
     render(){
         return (
-            <div>
-                <h1>112</h1>
-            </div>
+            <Row>
+                <Col span="12">
+                    <BorderCard>
+                        <div style={{width:"100px", height:"100px"}}>111</div>
+                    </BorderCard>
+                </Col>
+            </Row>
         )
     }
 }

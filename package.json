@@ -40,6 +40,7 @@
     "antd": "^3.7.1",
     "bizcharts": "^3.2.0",
     "isomorphic-fetch": "^2.2.1",
+    "prop-types": "^15.6.2",
     "rc-color-picker": "^1.2.6",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",

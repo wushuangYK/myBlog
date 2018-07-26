@@ -3,11 +3,12 @@
  */
 import React from 'react'
 import { Chart, Geom, Axis, Coord, Label } from 'bizcharts';
-import { Row, Col, List, Avatar, Card } from 'antd'
+import { Row, Col, List, Avatar } from 'antd'
 import { DataSet } from '@antv/data-set';
 import {TextColor} from '../../config/color.config'
 import {Post,URL} from '../../sys/Post'
 import {keyCount} from '../../util/cmnf'
+import BorderCard from '../../component/ui/BorderCard'
 
 const { DataView } = DataSet;
 
@@ -60,7 +61,7 @@ class TaskCountCard extends React.Component{
             as: 'percent'
         });
         return (
-            <Card>
+            <BorderCard>
                 <Row gutter={15}>
                     <Col {...taskCountColStyle(TextColor.light)}>
                         正在进行: {keyCount(data, "state", "正在进行")}
@@ -107,7 +108,7 @@ class TaskCountCard extends React.Component{
                         </Geom>
                     </Chart>
                 </Row>
-            </Card>
+            </BorderCard>
         )
     }
 }
@@ -147,7 +148,7 @@ export default class TaskHomePage extends React.Component{
         let {member_list, task_list} = this.state;
         //成员列表
         const Member_list = (
-            <Card title="Team Member">
+            <BorderCard title="Team Member">
                 <List
                     itemLayout="horizontal"
                     dataSource={member_list}
@@ -161,7 +162,7 @@ export default class TaskHomePage extends React.Component{
                         </List.Item>
                     )}
                 />
-            </Card>
+            </BorderCard>
         );
         return (
             <div>
@@ -174,7 +175,7 @@ export default class TaskHomePage extends React.Component{
                     </Col>
                 </Row>
                 <Row style={{margin:20}}>
-                    <Card title="Task List">
+                    <BorderCard title="Task List">
                         <List
                             itemLayout="horizontal"
                             dataSource={task_list}
@@ -187,7 +188,7 @@ export default class TaskHomePage extends React.Component{
                                 </List.Item>
                             )}
                         />
-                    </Card>
+                    </BorderCard>
                 </Row>
             </div>
         )

@@ -6,7 +6,7 @@ import {Route} from 'react-router-dom'
 import Loadable from 'react-loadable';
 
 const Loading = () => (
-    <div>Loading...</div>
+    <img src="../img/loading.gif"/>
 );
 
 //test
