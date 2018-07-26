@@ -18,10 +18,10 @@ export default class BorderCard extends React.Component{
     //a4纸的尺寸[595.28,841.89]，html页面生成的canvas在pdf中图片的宽高
     static defaultProps = {
         borderRadius: 8,
-        startColor: "orange",
-        endColor: "violet",
+        startColor: "#FFF1EB",
+        endColor: "#ACE0F9",
         borderSize: 2,
-        boxShadow: "0 3px 9px black, inset 0 0 9px white",
+        boxShadow: "5px 5px 10px #B4B4B4",
         background: "#FFFFFF",
         padding: 5
     };

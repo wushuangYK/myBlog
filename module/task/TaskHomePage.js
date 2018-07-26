@@ -3,7 +3,7 @@
  */
 import React from 'react'
 import { Chart, Geom, Axis, Coord, Label } from 'bizcharts';
-import { Row, Col, List, Avatar } from 'antd'
+import { Row, Col, List, Avatar, Table } from 'antd'
 import { DataSet } from '@antv/data-set';
 import {TextColor} from '../../config/color.config'
 import {Post,URL} from '../../sys/Post'
@@ -164,8 +164,39 @@ export default class TaskHomePage extends React.Component{
                 />
             </BorderCard>
         );
+        const dataSource = [{
+            key: '1',
+            name: '胡彦斌',
+            age: 32,
+            address: '西湖区湖底公园1号'
+        }, {
+            key: '2',
+            name: '胡彦祖',
+            age: 42,
+            address: '西湖区湖底公园1号'
+        }];
+
+        const columns = [{
+            title: '姓名',
+            dataIndex: 'name',
+            key: 'name',
+        }, {
+            title: '年龄',
+            dataIndex: 'age',
+            key: 'age',
+        }, {
+            title: '住址',
+            dataIndex: 'address',
+            key: 'address',
+        }];
         return (
             <div>
+                <Row>
+                    <Table dataSource={dataSource} columns={columns} size="small" bordered />
+                </Row>
+                <Row>
+                    <Table dataSource={dataSource} columns={columns} size="default" bordered />
+                </Row>
                 <Row gutter={20}>
                     <Col span="12">
                         <TaskCountCard data={task_list}/>
