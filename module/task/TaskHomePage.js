@@ -3,14 +3,16 @@
  */
 import React from 'react'
 import { Chart, Geom, Axis, Coord, Label } from 'bizcharts';
-import { Row, Col, List, Avatar, Table } from 'antd'
+import { Row, Col, List, Avatar, Table, Form, Button, Input, Icon } from 'antd'
 import { DataSet } from '@antv/data-set';
 import {TextColor} from '../../config/color.config'
 import {Post,URL} from '../../sys/Post'
 import {keyCount} from '../../util/cmnf'
 import BorderCard from '../../component/ui/BorderCard'
+import {renderFormItem} from '../../component/ui/FormConfig'
 
 const { DataView } = DataSet;
+const FormItem = Form.Item;
 
 const taskCountColStyle = color => {
     return {
@@ -113,7 +115,10 @@ class TaskCountCard extends React.Component{
     }
 }
 
-export default class TaskHomePage extends React.Component{
+const hasErrors = fieldsError => {
+    return Object.keys(fieldsError).some(field => fieldsError[field]);
+};
+class TaskHomePage extends React.Component{
     constructor(props){
         super(props);
 
@@ -144,7 +149,48 @@ export default class TaskHomePage extends React.Component{
         )
     };
 
+    handleSubmit = (e) => {
+        e.preventDefault();
+        this.props.form.validateFields((err, values) => {
+            if (!err) {
+                console.log('Received values of form: ', values);
+            }
+        });
+    }
+
     render(){
+        const { getFieldDecorator, getFieldsError, getFieldError, isFieldTouched } = this.props.form;
+        const userNameError = isFieldTouched('userName') && getFieldError('userName');
+        const passwordError = isFieldTouched('password') && getFieldError('password');
+        const formConfig = [
+            {
+                itemProps: {
+                    validateStatus: userNameError ? 'error' : '',
+                    help: userNameError || ''
+                },
+                id: "userName",
+                rules: [{ required: true, message: 'Please input your username!' }],
+                component: Input,
+                props: {
+                    prefix: <Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />,
+                    placeholder: "Username"
+                }
+            },
+            {
+                itemProps: {
+                    validateStatus: passwordError ? 'error' : '',
+                    help: passwordError || ''
+                },
+                id: "password",
+                rules: [{ required: true, message: 'Please input your Password!' }],
+                component: Input,
+                props: {
+                    prefix: <Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />,
+                    placeholder: "Password",
+                    type: "password"
+                }
+            }
+        ];
         let {member_list, task_list} = this.state;
         //成员列表
         const Member_list = (
@@ -221,7 +267,23 @@ export default class TaskHomePage extends React.Component{
                         />
                     </BorderCard>
                 </Row>
+                <Row style={{margin:20}}>
+                    <Form layout="inline" onSubmit={this.handleSubmit}>
+                        {formConfig.map((item, key) => renderFormItem(key, getFieldDecorator, item))}
+                        <FormItem>
+                            <Button
+                                type="primary"
+                                htmlType="submit"
+                                disabled={hasErrors(getFieldsError())}
+                            >
+                                Log in
+                            </Button>
+                        </FormItem>
+                    </Form>
+                </Row>
             </div>
         )
     }
 }
+
+export default Form.create()(TaskHomePage);
