@@ -15,7 +15,19 @@ const menu_list = [
     {
         icon: "file",
         title: "Blog",
-        path: "/blog"
+        path: "/blog",
+        sub: [
+            {
+                icon: "bars",
+                title: "Home",
+                path: "/blog/home",
+            },
+            {
+                icon: "file-add",
+                title: "Team",
+                path: "/blog/new",
+            }
+        ]
     },
     {
         icon: "mail",

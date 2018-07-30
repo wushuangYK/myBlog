@@ -45,6 +45,9 @@ export const Post = (url, parameters) => {
 };
 
 export const URL = {
+    //blog
+    BLOG_ADD: "blog/add",
+    BLOG_GETALL: "blog/getAll",
     //member
     MEMBER_GETALL: "member/getAll",
     MEMBER_ADD: "member/add",

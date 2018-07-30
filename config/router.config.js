@@ -51,6 +51,29 @@ const routes = [
         component: Me
     },
     {
+        path: "/blog",
+        component: Loadable({
+            loader: () => import('../container/BlogContainer'),
+            loading: Loading
+        }),
+        routes: [
+            {
+                path: "/blog/home",
+                component: Loadable({
+                    loader: () => import('../module/blog/Blog'),
+                    loading: Loading
+                }),
+            },
+            {
+                path: "/blog/new",
+                component: Loadable({
+                    loader: () => import('../module/blog/BlogNew'),
+                    loading: Loading
+                }),
+            }
+        ]
+    },
+    {
         path: "/tools",
         component: Loadable({
             loader: () => import('../container/ToolsContainer'),
