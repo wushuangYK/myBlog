@@ -18,21 +18,21 @@ const menu_list = [
         path: "/blog",
         sub: [
             {
-                icon: "bars",
+                icon: "home",
                 title: "Home",
                 path: "/blog/home",
             },
             {
                 icon: "file-add",
-                title: "Team",
+                title: "New",
                 path: "/blog/new",
+            },
+            {
+                icon: "bars",
+                title: "Admin",
+                path: "/blog/admin",
             }
         ]
-    },
-    {
-        icon: "mail",
-        title: "About Me",
-        path: "/me"
     },
     {
         icon: "inbox",

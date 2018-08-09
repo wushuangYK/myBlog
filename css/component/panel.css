@@ -1,0 +1,26 @@
+.panel-container{
+    position: relative;
+    background-clip: padding-box;
+    box-shadow: 5px 5px 10px #B4B4B4;
+}
+
+.panel{
+    background: #FFFFFF;
+}
+
+.panel-content{
+    padding: 10px;
+}
+
+.panel-header{
+    border-bottom: 1px solid #d4d4d4;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-weight: bold;
+}
+
+.panel-footer{
+    border-top: 1px solid #d4d4d4;
+    padding-left: 10px;
+    padding-right: 10px;
+}

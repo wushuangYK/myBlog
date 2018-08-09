@@ -3,3 +3,8 @@
     background: rgba(255,255,255,.2);
     margin: 16px;
 }
+
+/**--antd reset--**/
+form .ant-form-item{
+    margin-bottom: 5px;
+}

@@ -16,12 +16,6 @@ const Welcome = () => (
     </div>
 );
 
-const Me = () => (
-    <div>
-        <h2>Hey!</h2>
-    </div>
-);
-
 const RouteWithSubRoutes = route => (
     <Route
         exact={route.exact}
@@ -46,11 +40,6 @@ const routes = [
         component: Welcome
     },
     {
-        exact: true,
-        path: "/me",
-        component: Me
-    },
-    {
         path: "/blog",
         component: Loadable({
             loader: () => import('../container/BlogContainer'),
@@ -60,14 +49,21 @@ const routes = [
             {
                 path: "/blog/home",
                 component: Loadable({
-                    loader: () => import('../module/blog/Blog'),
+                    loader: () => import('../container/blog/Blog'),
+                    loading: Loading
+                }),
+            },
+            {
+                path: "/blog/admin",
+                component: Loadable({
+                    loader: () => import('../container/blog/BlogAdmin'),
                     loading: Loading
                 }),
             },
             {
                 path: "/blog/new",
                 component: Loadable({
-                    loader: () => import('../module/blog/BlogNew'),
+                    loader: () => import('../container/blog/BlogNew'),
                     loading: Loading
                 }),
             }

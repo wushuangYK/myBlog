@@ -8,8 +8,7 @@ import { DataSet } from '@antv/data-set';
 import {TextColor} from '../../config/color.config'
 import {Post,URL} from '../../sys/Post'
 import {keyCount} from '../../util/cmnf'
-import BorderCard from '../../component/ui/BorderCard'
-import {renderFormItem} from '../../component/ui/FormConfig'
+import {Panel, renderFormItem} from '../../component/ui/UiComponent'
 
 const { DataView } = DataSet;
 const FormItem = Form.Item;
@@ -63,7 +62,7 @@ class TaskCountCard extends React.Component{
             as: 'percent'
         });
         return (
-            <BorderCard>
+            <Panel>
                 <Row gutter={15}>
                     <Col {...taskCountColStyle(TextColor.light)}>
                         正在进行: {keyCount(data, "state", "正在进行")}
@@ -110,7 +109,7 @@ class TaskCountCard extends React.Component{
                         </Geom>
                     </Chart>
                 </Row>
-            </BorderCard>
+            </Panel>
         )
     }
 }
@@ -156,7 +155,7 @@ class TaskHomePage extends React.Component{
                 console.log('Received values of form: ', values);
             }
         });
-    }
+    };
 
     render(){
         const { getFieldDecorator, getFieldsError, getFieldError, isFieldTouched } = this.props.form;
@@ -194,7 +193,7 @@ class TaskHomePage extends React.Component{
         let {member_list, task_list} = this.state;
         //成员列表
         const Member_list = (
-            <BorderCard title="Team Member">
+            <Panel title="Team Member">
                 <List
                     itemLayout="horizontal"
                     dataSource={member_list}
@@ -208,7 +207,7 @@ class TaskHomePage extends React.Component{
                         </List.Item>
                     )}
                 />
-            </BorderCard>
+            </Panel>
         );
         const dataSource = [{
             key: '1',
@@ -252,7 +251,7 @@ class TaskHomePage extends React.Component{
                     </Col>
                 </Row>
                 <Row style={{margin:20}}>
-                    <BorderCard title="Task List">
+                    <Panel title="Task List">
                         <List
                             itemLayout="horizontal"
                             dataSource={task_list}
@@ -265,7 +264,7 @@ class TaskHomePage extends React.Component{
                                 </List.Item>
                             )}
                         />
-                    </BorderCard>
+                    </Panel>
                 </Row>
                 <Row style={{margin:20}}>
                     <Form layout="inline" onSubmit={this.handleSubmit}>

@@ -45,9 +45,14 @@ export const Post = (url, parameters) => {
 };
 
 export const URL = {
+    //blogType
+    BLOGTYPE_GETALL: "blogType/getAll",
+    BLOGTYPE_ADD: "blogType/add",
+    BLOGTYPE_DEL: "blogType/del",
     //blog
     BLOG_ADD: "blog/add",
     BLOG_GETALL: "blog/getAll",
+    BLOG_GETBYTYPE: "blog/getByType",
     //member
     MEMBER_GETALL: "member/getAll",
     MEMBER_ADD: "member/add",

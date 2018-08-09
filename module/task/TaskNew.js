@@ -3,7 +3,7 @@
  */
 import React from 'react'
 import {Row,Col} from 'antd'
-import BorderCard from '../../component/ui/BorderCard'
+import {Panel} from '../../component/ui/UiComponent'
 
 export default class TaskHomePage extends React.Component{
     constructor(props){
@@ -14,9 +14,9 @@ export default class TaskHomePage extends React.Component{
         return (
             <Row>
                 <Col span="12">
-                    <BorderCard>
+                    <Panel>
                         <div style={{width:"100px", height:"100px"}}>111</div>
-                    </BorderCard>
+                    </Panel>
                 </Col>
             </Row>
         )
