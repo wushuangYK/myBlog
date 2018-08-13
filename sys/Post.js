@@ -45,6 +45,12 @@ export const Post = (url, parameters) => {
 };
 
 export const URL = {
+    //diary
+    DIARY_GET: "diary/get",
+    DIARY_SAVE: "diary/save",
+    //dailyTask
+    DAILYTASK_GET: "dailyTask/get",
+    DAILYTASK_SAVE: "dailyTask/save",
     //blogType
     BLOGTYPE_GETALL: "blogType/getAll",
     BLOGTYPE_ADD: "blogType/add",

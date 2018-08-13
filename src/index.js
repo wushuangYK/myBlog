@@ -45,7 +45,7 @@ const MyLayout = ({location}) => (
             <Header style={{ background: '#fff', padding: 0, height:'10vh' }} />
             <Content style={{ margin: '1vh 16px 1vh', position:"relative"}}>
                 <Route path="/" component={Bread} />
-                <div style={{ padding: 24, background: '#fff', minHeight:'75vh', height:"auto" }}>
+                <div style={{ padding: 24, background: '#fff', height:'75vh', overflow:"auto" }}>
                     <Switch>
                         {routes.map((route, i) => <RouteWithSubRoutes key={i} {...route} />)}
                     </Switch>

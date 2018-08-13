@@ -13,6 +13,16 @@ const menu_list = [
         path: "/welcome"
     },
     {
+        icon: "solution",
+        title:"Diary",
+        path: "/diary",
+    },
+    {
+        icon: "solution",
+        title:"DailyTask",
+        path: "/dailyTask",
+    },
+    {
         icon: "file",
         title: "Blog",
         path: "/blog",

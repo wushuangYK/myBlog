@@ -140,14 +140,14 @@ export default class BlogAdmin extends BaseComponent{
         return (
             <Row type="flex" gutter={10}>
                 <Col span="6">
-                    <Panel title="分类" foot={treeFoot} height="65vh">
+                    <Panel title="分类" foot={treeFoot} height="60vh">
                         <Tree onSelect={this.onSelectType}>
                             {generateTreeNode(typeList)}
                         </Tree>
                     </Panel>
                 </Col>
                 <Col span="18">
-                    <Panel title="分类" foot={treeFoot} height="65vh">
+                    <Panel title="分类" foot={treeFoot} height="60vh">
                         <Table
                             dataSource={data}
                             columns={table_columns}

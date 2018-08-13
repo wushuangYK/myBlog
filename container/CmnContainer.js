@@ -1,10 +1,12 @@
 /**
- * Created by wushuang on 2018/7/24.
+ * Created by wushuang on 2018/7/30.
  */
 import React from 'react'
+import {withRouter} from 'react-router-dom'
+import {Row,Col} from 'antd'
 import {RouteWithSubRoutes} from '../config/router.config'
 
-export default class TaskContainer extends React.Component{
+class CmnContainer extends React.Component{
     constructor(props){
         super(props);
     }
@@ -17,3 +19,5 @@ export default class TaskContainer extends React.Component{
         )
     }
 }
+
+export default withRouter(CmnContainer)

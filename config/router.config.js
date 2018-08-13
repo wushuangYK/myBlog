@@ -12,7 +12,7 @@ const Loading = () => (
 //test
 const Welcome = () => (
     <div>
-        <h2>Welcome!</h2>
+        <h2>Welcome! This is Siver's personal page!</h2>
     </div>
 );
 
@@ -40,9 +40,23 @@ const routes = [
         component: Welcome
     },
     {
+        path: "/diary",
+        component: Loadable({
+            loader: () => import('../container/diary/DiaryMain'),
+            loading: Loading
+        }),
+    },
+    {
+        path: "/dailyTask",
+        component: Loadable({
+            loader: () => import('../container/dailyTask/DailyTaskMain'),
+            loading: Loading
+        }),
+    },
+    {
         path: "/blog",
         component: Loadable({
-            loader: () => import('../container/BlogContainer'),
+            loader: () => import('../container/CmnContainer'),
             loading: Loading
         }),
         routes: [
@@ -123,7 +137,7 @@ const routes = [
     {
         path: "/task",
         component: Loadable({
-            loader: () => import('../container/TaskContainer'),
+            loader: () => import('../container/CmnContainer'),
             loading: Loading
         }),
         routes: [

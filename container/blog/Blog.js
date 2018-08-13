@@ -39,7 +39,7 @@ class Blog extends React.Component{
         return (
             <Row gutter={10}>
                 <Col span="6">
-                    <Panel title="列表" height="65vh">
+                    <Panel title="列表" height="64vh">
                         <Row style={{height:"100%"}}>
                             <Col
                                 span="10"
@@ -57,14 +57,14 @@ class Blog extends React.Component{
                     </Panel>
                 </Col>
                 <Col span="18">
-                    <Panel height="69vh">
+                    <Panel height="68vh">
                         <Row type="flex" justify="center" style={{height:"3vh",fontSize:"2.5vh",fontWeight:"bold"}}>
                             {article.name}
                         </Row>
                         <Row type="flex" justify="end" style={{paddingRight:"15%", height:"3vh"}}>
                             {json_decode(article.tags, []).map(item => (<Tag>{item}</Tag>))}
                         </Row>
-                        <Row type="flex" style={{height:"58vh",marginTop:"1vh",}}>
+                        <Row type="flex" style={{height:"55vh",marginTop:"1vh",}}>
                             <iframe
                                 style={{
                                     width:"100%",
