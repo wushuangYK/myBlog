@@ -2,9 +2,8 @@
  * Created by wushuang on 2018/7/30.
  */
 import React from 'react'
-import {withRouter} from 'react-router-dom'
-import {Row,Col} from 'antd'
-import {RouteWithSubRoutes} from '../config/router.config'
+import {Switch} from 'react-router-dom'
+import {RouteWithSubRoutes, noMatchRoute} from '../config/router.config'
 
 class CmnContainer extends React.Component{
     constructor(props){
@@ -13,11 +12,12 @@ class CmnContainer extends React.Component{
 
     render(){
         return (
-            <div>
+            <Switch>
                 {this.props.routes.map((route, i) => <RouteWithSubRoutes key={i} {...route} />)}
-            </div>
+                <RouteWithSubRoutes {...noMatchRoute} />
+            </Switch>
         )
     }
 }
 
-export default withRouter(CmnContainer)
+export default CmnContainer

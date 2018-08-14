@@ -4,7 +4,7 @@
 import React from 'react'
 import { Menu, Icon } from 'antd';
 import {withRouter} from 'react-router-dom'
-import {isEmpty} from '../util/cmnf'
+import {isEmpty} from '../../util/cmnf'
 
 const menu_list = [
     {

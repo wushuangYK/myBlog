@@ -1,11 +1,12 @@
 /**
  * Created by wushuang on 2018/2/8.
  */
-import {message} from 'antd';
 import {rootURL} from '../config/server.config';
+import Cache from '../sys/Cache'
 const fetch = require('isomorphic-fetch');
 
 export const Post = (url, parameters) => {
+    parameters = parameters || {};
     //生成http请求
     url = String(url);
     let newOptions = {
@@ -28,7 +29,6 @@ export const Post = (url, parameters) => {
     return fetch(rootURL + url, newOptions).then(
         response => {
             if (response.status !== 200) {
-                message.error('请求错误!');
                 throw 'post error';
             } else {
                 return response.json();
@@ -36,7 +36,7 @@ export const Post = (url, parameters) => {
         }
     ).then(
         json => {
-            if (json.Error == "1")
+            if (json.Error === 1)
                 throw json.Data;
             else
                 return json.Data;
@@ -44,7 +44,16 @@ export const Post = (url, parameters) => {
     );
 };
 
+export const PostUid = (url, parameters) => {
+    parameters = parameters || {};
+    parameters.uid = Cache.getUid();
+    return Post(url, parameters);
+};
+
 export const URL = {
+    //user
+    USER_LOGIN: "user/login",
+    USER_SIGNUP: "user/signup",
     //diary
     DIARY_GET: "diary/get",
     DIARY_SAVE: "diary/save",
@@ -57,7 +66,6 @@ export const URL = {
     BLOGTYPE_DEL: "blogType/del",
     //blog
     BLOG_ADD: "blog/add",
-    BLOG_GETALL: "blog/getAll",
     BLOG_GETBYTYPE: "blog/getByType",
     //member
     MEMBER_GETALL: "member/getAll",

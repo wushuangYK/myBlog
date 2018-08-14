@@ -4,7 +4,7 @@
 import React from 'react'
 import {withRouter} from 'react-router-dom'
 import {Row,Col} from 'antd'
-import {RouteWithSubRoutes} from '../config/router.config'
+import {RouteWithSubRoutes} from '../../config/router.config'
 
 const LIST = [
     {

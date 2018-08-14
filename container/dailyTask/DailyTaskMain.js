@@ -5,7 +5,7 @@ import React from 'react'
 import {Row,Col,Table,Button,Input,message} from 'antd'
 import {Panel} from '../../component/ui/UiComponent'
 import moment from 'moment'
-import {Post,URL} from '../../sys/Post'
+import {PostUid,URL} from '../../sys/Post'
 import {json_decode} from '../../util/cmnf'
 
 const ButtonGroup = Button.Group;
@@ -37,7 +37,7 @@ export default class DailyTaskMain extends React.Component{
     }
 
     getData = () => {
-        Post(URL.DAILYTASK_GET).then(
+        PostUid(URL.DAILYTASK_GET).then(
             listData => {
                 let selectItem = {};
                 if(listData.length > 0){
@@ -67,7 +67,7 @@ export default class DailyTaskMain extends React.Component{
     };
 
     save = () => {
-        Post(URL.DAILYTASK_SAVE, this.state.selectItem).then(
+        PostUid(URL.DAILYTASK_SAVE, this.state.selectItem).then(
             () => {
                 message.success("保存成功!");
                 this.getData();

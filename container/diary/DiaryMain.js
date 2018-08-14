@@ -5,7 +5,7 @@ import React from 'react'
 import {Row,Col,Input,Button,message} from 'antd'
 import {Panel} from '../../component/ui/UiComponent'
 import moment from 'moment'
-import {Post,URL} from '../../sys/Post'
+import {PostUid,URL} from '../../sys/Post'
 
 const TextArea = Input.TextArea;
 export default class DiaryMain extends React.Component{
@@ -24,7 +24,7 @@ export default class DiaryMain extends React.Component{
 
     //获取数据
     getData = () => {
-        Post(URL.DIARY_GET).then(
+        PostUid(URL.DIARY_GET).then(
             data => {
                 let selectItem = {};
                 if(data.length > 0)
@@ -58,7 +58,7 @@ export default class DiaryMain extends React.Component{
 
     save = () => {
         let {selectItem} = this.state;
-        Post(URL.DIARY_SAVE, selectItem).then(
+        PostUid(URL.DIARY_SAVE, selectItem).then(
             () => {
                 message.success("保存成功!");
                 this.getData();
@@ -112,14 +112,14 @@ export default class DiaryMain extends React.Component{
         return (
             <Row gutter={10}>
                 <Col span="6">
-                    <Panel title={list_title} height="65vh">
+                    <Panel title={list_title} height="64vh">
                         <div style={{margin: "10px 0 0 10px"}}>
                             {list}
                         </div>
                     </Panel>
                 </Col>
                 <Col span="18">
-                    <Panel title={data_title} height="65vh">
+                    <Panel title={data_title} height="64vh">
                         <TextArea
                             ref="textarea"
                             autosize={{minRows: 24, maxRows: 24}}

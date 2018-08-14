@@ -147,7 +147,7 @@ export default class BlogAdmin extends BaseComponent{
                     </Panel>
                 </Col>
                 <Col span="18">
-                    <Panel title="分类" foot={treeFoot} height="60vh">
+                    <Panel title="分类" height="64vh">
                         <Table
                             dataSource={data}
                             columns={table_columns}

@@ -3,7 +3,7 @@
  */
 import React from 'react'
 import {Row,Col,Button,message,Input,Select} from "antd"
-import {Post,URL} from '../../sys/Post'
+import {PostUid,URL} from '../../sys/Post'
 import LzEditor from 'react-lz-editor'
 import {Encoder} from '../../util/base64'
 import BlogTypeSelect from '../../module/blog/BlogTypeSelect'
@@ -26,7 +26,7 @@ class BlogNew extends React.Component{
 
     save(){
         let param = Object.assign({html: Encoder(this.html)}, this.data);
-        Post(URL.BLOG_ADD, param).then(
+        PostUid(URL.BLOG_ADD, param).then(
             () => {
                 message.success("保存成功!");
             }
@@ -37,18 +37,19 @@ class BlogNew extends React.Component{
         const columns = [
             [
                 {
+                    span: 12,
+                    labelCol: 2,
+                    wrapperCol: 22,
                     title: "标题",
                     component: Input,
                     props: {
                         onChange: e => this.data.name = e.target.value
                     }
-                }
-            ],
-            [
+                },
                 {
-                    span: 6,
-                    labelCol: 4,
-                    wrapperCol: 20,
+                    span: 4,
+                    labelCol: 6,
+                    wrapperCol: 18,
                     title: "分类",
                     component: BlogTypeSelect,
                     props: {
@@ -57,9 +58,9 @@ class BlogNew extends React.Component{
                     }
                 },
                 {
-                    span: 18,
-                    labelCol: 2,
-                    wrapperCol: 22,
+                    span: 8,
+                    labelCol: 3,
+                    wrapperCol: 21,
                     title: "标签",
                     component: Select,
                     props: {
@@ -76,7 +77,6 @@ class BlogNew extends React.Component{
                     props: {
                         className: "blog_edit",
                         cbReceiver: html => this.html = html,
-                        style: {height:"200px"}
                     }
                 }
             ]

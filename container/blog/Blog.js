@@ -61,8 +61,19 @@ class Blog extends React.Component{
                         <Row type="flex" justify="center" style={{height:"3vh",fontSize:"2.5vh",fontWeight:"bold"}}>
                             {article.name}
                         </Row>
-                        <Row type="flex" justify="end" style={{paddingRight:"15%", height:"3vh"}}>
-                            {json_decode(article.tags, []).map(item => (<Tag>{item}</Tag>))}
+                        <Row type="flex" style={{height:"3vh",marginTop:"10px"}}>
+                            <Col span="6" />
+                            <Col span="2">
+                                {article.username}
+                            </Col>
+                            <Col span="6">
+                                {article.create_time}
+                            </Col>
+                            <Col span="10">
+                                <Row type="flex">
+                                    {json_decode(article.tags, []).map(item => (<Tag>{item}</Tag>))}
+                                </Row>
+                            </Col>
                         </Row>
                         <Row type="flex" style={{height:"55vh",marginTop:"1vh",}}>
                             <iframe
