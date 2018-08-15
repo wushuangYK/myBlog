@@ -148,6 +148,13 @@ const routes = [
                             loader: () => import('../module/tools/CalendarPanel'),
                             loading: Loading
                         }),
+                    },
+                    {
+                        path: "/tools/qrcodeGenerator",
+                        component: Loadable({
+                            loader: () => import('../module/tools/QrcodeGenerator'),
+                            loading: Loading
+                        }),
                     }
                 ]
             },

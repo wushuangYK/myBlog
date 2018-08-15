@@ -31,6 +31,10 @@ const LIST = [
         name: "简易压力测试",
         path: "simplePressureTest"
     },
+    {
+        name: "二维码生成",
+        path: "qrcodeGenerator"
+    },
 ];
 class ToolsMainPage extends React.Component{
     constructor(props){
