@@ -238,7 +238,7 @@ export default class DailyTaskMain extends React.Component{
             <Row type="flex" gutter={10}>
                 <Col span="6">
                     <Panel title={list_title} height="64vh">
-                        <div style={{margin:"10px 0 0 10px"}}>
+                        <div style={{margin:"10px 0 10 10px",overflowY:"auto",height:"100%"}}>
                             {list}
                         </div>
                     </Panel>
